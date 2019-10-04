@@ -1,0 +1,121 @@
+.header {
+    align-items: center;
+    background: #8f57fd;
+    color: white;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    top: 0px;
+    width: 100%;
+  }
+  
+  .header__img {
+    margin-left: 30px;
+    width: 200px;
+  }
+  
+  .header__menu {
+      margin-right: 30px;
+  }
+  
+  .header__menu ul {
+    display: none;
+    list-style: none;
+    margin: 0px 0px 0px -14px;
+    padding: 0px;
+    position: absolute;
+    width: 100px;
+    text-align: right;
+  }
+  
+  .header__menu:hover ul, ul:hover {
+      display: block;
+  }
+  
+  .header__menu li {
+    margin: 10px 0px;
+  }
+  
+  .header__menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header__menu li a:hover {
+    text-decoration: underline;
+  }
+  
+  .header__menu--profile {
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .header__menu--profile img {
+    margin-right: 8px;
+    width: 40px;
+  }
+  
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+    border-radius: 0px 0px 40px 40px;
+  }
+  
+  .main__title {
+    color: white;
+    font-size: 25px;
+  }
+  
+  
+  .footer {
+    align-items: center;
+    background-color: #8f57fd;
+    display: flex;
+    height: 100px;
+    width: 100%;
+  }
+  
+  .footer a {
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 30px;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .input {
+    background-color: rgba(255,255,255,0.1);
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    margin-bottom: 20px;
+    outline: none;
+    padding: 0px 20px;
+    width: 70%;
+  }
+  
+  ::placeholder {
+    color: white;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .main__description--title {
+      font-size: 30px;
+    }
+  
+    .footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
