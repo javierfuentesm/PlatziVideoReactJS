@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import useInitialState from '../hooks/UseIninitalState';
 
 const API = 'http://localhost:3000/initialState';
-const App = () => {
+const Home = () => {
   const initialState = useInitialState(API);
 
   return (
@@ -40,4 +40,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
