@@ -1,39 +1,44 @@
 /* eslint-disable jsx-quotes */
 import React from 'react';
+import { connect } from 'react-redux';
 import '../assets/styles/App.scss';
 import Search from '../components/Search';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Categories from '../components/Categories';
-import useInitialState from '../hooks/UseIninitalState';
 
-const API = 'http://localhost:3000/initialState';
-const Home = () => {
-  const initialState = useInitialState(API);
+const Home = ({ mylist, trends, originals }) => {
 
   return (
     <>
       <Search />
-      {initialState.mylist.lenght > 0 && (
+      {mylist.lenght > 0 && (
         <Categories title="Mi lista">
           <Carousel>
-            {initialState.mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
+            {mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
           </Carousel>
         </Categories>
       )}
 
       <Categories title="Tendencias">
         <Carousel>
-          {initialState.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
+          {trends.map((item) => <CarouselItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
       <Categories title="Originales de PlatziVideo">
         <Carousel>
-          {initialState.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
+          {originals.map((item) => <CarouselItem key={item.id} {...item} />)}
         </Carousel>
       </Categories>
     </>
   );
 };
+const mapStateToProps = (state) => {
 
-export default Home;
+  return {
+    mylist: state.mylist,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+export default connect(mapStateToProps, null)(Home);
