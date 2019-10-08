@@ -6,10 +6,15 @@ const reducer = (state, action) => {
         mylist: [...state.mylist, action.payload],
       };
 
-    default: return state;
+    case 'DELETE_FAVORITE':
+      return {
+        ...state,
+        mylist: state.mylist.filter((items) => items.id !== action.payload),
+      };
 
+    default:
+      return state;
   }
-
 };
 
 export default reducer;
