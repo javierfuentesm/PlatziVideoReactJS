@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-quotes */
 import React from 'react';
 import { connect } from 'react-redux';

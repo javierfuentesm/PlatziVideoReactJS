@@ -1,15 +1,17 @@
-import express from "express";
-import dotenv from "dotenv";
+import express from 'express';
+import dotenv from 'dotenv';
+
 dotenv.config();
+// eslint-disable-next-line no-unused-vars
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3000;
 
 const app = express();
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
   res.send({ holamundo: true });
 });
 
-app.listen(PORT, err => {
+app.listen(PORT, (err) => {
   if (err) console.log(err);
   console.log(`Server running on ${PORT}`);
 });

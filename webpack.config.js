@@ -1,9 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/frontend/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -14,6 +16,14 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        use: {
+          loader: 'eslint-loader',
+        },
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -34,6 +44,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader },
           'css-loader',
           'sass-loader',
+          'postcss-loader',
 
         ],
       },
@@ -55,6 +66,13 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [
+          autoprefixer(),
+        ],
+      },
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
